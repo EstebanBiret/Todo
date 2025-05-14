@@ -150,13 +150,14 @@ function addDragEvents(el) {
     });
 }
 
-document.querySelectorAll(".task-list").forEach(list => {
-    list.addEventListener("dragover", e => e.preventDefault());
-    list.addEventListener("drop", e => {
+document.querySelectorAll(".column").forEach(column => {
+    column.addEventListener("dragover", e => e.preventDefault());
+    column.addEventListener("drop", e => {
         const id = e.dataTransfer.getData("text/plain");
         const task = tasks.find(t => t.id === id);
-        if (task) {
-            task.status = list.id;
+        const newStatus = column.getAttribute("data-status");
+        if (task && newStatus) {
+            task.status = newStatus;
             saveAndRender();
         }
     });
