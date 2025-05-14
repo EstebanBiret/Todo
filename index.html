@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="logo.png" type="image/x-icon">
+    </head>
+    <body>
+        <header>
+            <h1>Tout doux</h1>
+            <p style="font-style: italic;">- Déplacez vos tâches entre les colonnes -</p>
+            <div class="actions">
+                <button id="manageLabelsBtn" class="button-create">🔍 Gérer les labels</button>
+                <button id="addLabelBtn" class="button-create">➕ Nouveau label</button>
+                <button id="addTaskBtn" class="button-create">➕ Nouvelle tâche</button>
+            </div>  
+        </header>
+
+    <!-- Colonnes -->
+    <main class="kanban">
+        <div class="column" data-status="todo">
+            <h2>À faire</h2>
+            <div class="task-list" id="todo"></div>
+        </div>
+        <div class="column" data-status="in-progress">
+            <h2>En cours</h2>
+            <div class="task-list" id="in-progress"></div>
+        </div>
+        <div class="column" data-status="done">
+            <h2>Terminées</h2>
+            <div class="task-list" id="done"></div>
+        </div>
+    </main>
+
+    <!-- Modal tâche -->
+    <div id="taskModal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="modalTitle" style="text-align: center;">Nouvelle tâche</h3>
+
+            <label for="taskTitle">Titre</label>
+            <input type="text" id="taskTitle" placeholder="Titre de la tâche" maxlength="50">
+
+            <label for="taskDescription">Description</label>
+            <textarea id="taskDescription" placeholder="Détails..." maxlength="100"></textarea>
+
+            <label for="taskLabel">Label</label>
+            <select id="taskLabel">
+            </select>
+
+            <label for="taskPriority">Priorité</label>
+            <select id="taskPriority">
+                <option value="low">Basse</option>
+                <option value="medium">Moyenne</option>
+                <option value="high">Haute</option>
+            </select>
+
+            <div class="form-buttons">
+                <button id="saveTaskBtn" class="save-btn">Ajouter</button>
+                <button id="cancelTaskBtn" class="cancel-btn">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal création d'un label -->
+    <div id="labelModal" class="modal hidden">
+        <div class="modal-content">
+            <h3 style="text-align: center;">Nouveau label</h3>
+            <label for="labelName">Nom du label</label>
+            <input type="text" id="labelName" placeholder="ex : paperasse, perso..." maxlength="20">
+            <div class="form-buttons">
+                <button id="saveLabelBtn" class="save-btn">Ajouter</button>
+                <button id="cancelLabelBtn" class="cancel-btn">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal gestion des labels -->
+    <div id="manageLabelsModal" class="modal hidden">
+        <div class="modal-content">
+            <h3 style="text-align: center;">Gestion des labels</h3>
+            <ul id="labelList"></ul>
+                <div class="form-buttons">
+                    <button id="closeManageLabelsBtn" class="cancel-btn">Fermer</button>
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    </body>
+</html>
