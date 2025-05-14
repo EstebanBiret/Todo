@@ -10,4 +10,5 @@ Une application web simple de gestion de tâches au format Kanban, développée 
 - Créer et gérer des **labels personnalisés**
 - Sauvegarde locale automatique
 
-🔗 [Accéder à l'application](https://todo.biret-toscano.fr)
+## 🔗 Lien
+👉 [Accéder à l'application](https://todo.biret-toscano.fr)
