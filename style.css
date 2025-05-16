@@ -44,6 +44,8 @@ header {
   flex: 1;
   border-radius: 8px;
   min-height: 400px;
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
 }
 
 .task {
